@@ -4,7 +4,7 @@ This a simple application that can validate if a request originate from IAP (Ide
 
 You can check this tutorial [hodo.dev] to see how this can be used in GKE.
 
-## how it works
+## How it works
 
 This app is a http server that validated the if the request originates from IAP and the following steps are performed:
 
@@ -41,7 +41,7 @@ SERVICE_GKE_PORT_NAME    | The k8s port name defined in GKE for the backend serv
 SERVICE_GKE_PORT_NUMBER  | The k8s port number defined in GKE for the backend service
 
 
-## how to build
+## How to build
 
 ```bash
 git clone https://github.com/gabihodoroaga/gcp-iap-jwt-validator.git
@@ -50,7 +50,7 @@ env CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o bin/ .
 docker build -t gabihodoroaga/iap-validator . 
 ```
 
-## how to use 
+## How to use 
 
 This is an example of how to deploy this app as a sidecar and configure nginx to check every request for authorization.
 
@@ -161,6 +161,6 @@ spec:
 
 ## TODO:
 
-[] benchmark the jwt validation function 
-[] load test using hey/wrk/vegeta/bombardier/any load testing tools
+[ ] benchmark the jwt validation function  
+[ ] load test using hey/wrk/vegeta/bombardier/any load testing tools
 
