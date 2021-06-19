@@ -161,6 +161,5 @@ spec:
 
 ## TODO:
 
-[ ] benchmark the jwt validation function  
-[ ] load test using hey/wrk/vegeta/bombardier/any load testing tools
-
+- [ ] benchmark the jwt validation function
+- [ ] load test using hey/wrk/vegeta/bombardier/any load testing tools
