@@ -61,7 +61,7 @@ Setup nginx
 ```nginx
 server {
     listen       80;
-    root    /var/www/html/public;
+    root    /usr/share/nginx/html;
     index   index.html index.htm;
 
     location / {
@@ -119,7 +119,6 @@ kind: Deployment
 metadata:
   name: nginx
 spec:
-  replicas: 3
   selector:
     matchLabels:
       app: nginx
@@ -136,6 +135,7 @@ spec:
         volumeMounts:
         - name: nginx-config
           mountPath: /etc/nginx/conf.d/default.conf
+          subPath: nginx.conf
       - name: iap-validator
         image: gabihodoroaga/iap-validator
         command:
@@ -155,7 +155,6 @@ spec:
       - name: google-cloud-key
         secret:
           secretName: iap-validator-svc-key
-    volumes:
       - name: nginx-config
         configMap:
           name: nginx.conf
