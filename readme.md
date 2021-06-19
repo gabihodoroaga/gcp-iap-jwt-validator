@@ -22,8 +22,8 @@ This app is a http server that validated the if the request originates from IAP 
 
 Status code | Description 
 ----------- | --------------- 
-401 | This code is returned when the IAP assertion header is missing from the request 
-403 | This code is returned when the token validation fails
+401         | This code is returned when the IAP assertion header is missing from the request 
+403         | This code is returned when the token validation fails
 
 
 ### Configuration values
@@ -31,7 +31,7 @@ Status code | Description
 Name                     | Description 
 ------------------------ | ------------
 OAUTH_ISSUER             | The value of the iss field of the jwt token. Default ```https://cloud.google.com/iap```
-OAUTH_AUDIENCE           | The value of the aud field of the jwt token.<br>Must have the format: ```/projects/project_number/global/backendServices/backend_service_id```<br>If this value is not specified then the app will query the GCP metadata server to search for the audience value using the next configuration values
+OAUTH_AUDIENCE           | The value of the aud field of the jwt token.<br>Must have the format: ```/projects/projectNumber/global/backendServices/backendServiceId```<br>If this value is not specified, the app will query the GCP metadata server to search for the audience value using the next configuration values
 PROJECT_ID               | The GCP project id
 OAUTH_CLIENT_ID          | The OAuth client id configured for the IAP backend
 SERVICE_NAME             | The backend service name. The search for the backend will be performed using the ```contains``` function
