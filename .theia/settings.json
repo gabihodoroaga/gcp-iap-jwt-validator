@@ -2,10 +2,12 @@
     "cSpell.words": [
         "GOARCH",
         "Infof",
+        "configmap",
         "gabihodoroaga",
         "gcloud",
         "gserviceaccount",
         "hodo",
+        "iapvalidator",
         "idtoken",
         "klog",
         "kubectl",

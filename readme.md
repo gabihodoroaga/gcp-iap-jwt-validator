@@ -1,12 +1,14 @@
 # gcp-iap-jwt-validator
 
-This a simple application that can validate if a request originate from IAP (Identity Aware Proxy). I can be used as sidecar in GKE.
+Simple application that can be used to validate if a request originates from IAP (Identity Aware Proxy) on GCP.
 
 You can check this tutorial [hodo.dev] to see how this can be used in GKE.
 
 ## How it works
 
-This app is a http server that validated the if the request originates from IAP and the following steps are performed:
+This app is a http server that validated the if the request originates from IAP.
+
+The following steps are performed in order to do the validation:
 
 - search for the authentication header ```X-Goog-IAP-JWT-Assertion```
 - if he header is not present returns 401
@@ -86,7 +88,7 @@ Create a ```configmap``` from this file
 kubectl create configmap nginx-config --from-file=nginx.conf
 ```
 
-In order get he audience value required for the toke validation you need create a service accoutna and to grant view access to the project resources. The permission required are "resourcemanager.projects.get" and 'compute.backendServices.get'
+In order get he audience value required for the toke validation you need create a service account and to grant view access to the project resources. The permission required are "resourcemanager.projects.get" and 'compute.backendServices.get'
 
 ```bash 
 # find the project id
@@ -162,4 +164,4 @@ spec:
 ## TODO:
 
 - [ ] benchmark the jwt validation function
-- [ ] load test using hey/wrk/vegeta/bombardier/any load testing tools
+- [ ] load test using hey/wrk/bombardier/any load testing tools
