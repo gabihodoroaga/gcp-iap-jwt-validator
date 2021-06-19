@@ -2,7 +2,7 @@
 
 Simple application that can be used to validate if a request originates from IAP (Identity Aware Proxy) on GCP.
 
-You can check this tutorial [hodo.dev] to see how this can be used in GKE.
+You can check this tutorial [hodo.dev/posts/post-26-gcp-iap](http://hodo.dev/posts/post-26-gcp-iap/) to see how this can be used in GKE.
 
 ## How it works
 
@@ -107,7 +107,7 @@ Generate the service account key and save it as kubernetes secret
 
 ```bash
 gcloud iam service-accounts keys create key.json \
-  --iam-account iap-validator-svs@${PROJECT_ID}.iam.gserviceaccount.com
+  --iam-account iap-validator-svc@${PROJECT_ID}.iam.gserviceaccount.com
 kubectl create secret generic iap-validator-svc-key --from-file=key.json
 ```
 
@@ -160,6 +160,8 @@ spec:
         configMap:
           name: nginx.conf
 ```
+
+You still need to expose the app using a service and a backed config with IAP enabled and an Ingress.
 
 ## TODO:
 
